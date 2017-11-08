@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message Control {
+    enum Action {
+        START = 0;
+        STOP = 1;
+        PUASE = 2;
+        VUP = 3;
+        VDOWN = 4;
+        NEXT = 5;
+        PRVE = 6;
+    }
+    Action corpus = 1;
+}
+
+message Data {
+    string data = 1;
+}
+
+message Message {
+    oneof Package {
+        Control control = 1;
+        Data data = 2;
+    }
+}
